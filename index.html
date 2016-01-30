@@ -3,14 +3,9 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Creating a Simple Parallax Scrolling Website</title>
-    <link rel="stylesheet" href="css/style.css" />
+    <title>Weather App</title>
+    <!--<link rel="stylesheet" href="css/style.css" />-->
     <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
-    <link href='http://fonts.googleapis.com/css?family=Wellfleet' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Wellfleet' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Arvo:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Goudy+Bookletter+1911' rel='stylesheet' type='text/css'>
     <script type="text/javascript" src="js/script.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
     <script type="text/javascript" src="js/controller.js"></script>
@@ -23,52 +18,58 @@
             <div id="logo"><a href=""> PARALLAX </a></div>
             <nav id="nav">
                 <ul>
-                    <li><a href="#slide1" class="active" title="Next Section">Summary</a></li>
-                    <li><a href="#slide2" title="Next Section">Hourly</a></li>
-                    <li><a href="#slide3" title="Next Section">Weekly</a></li>
-                    <li><a href="#slide4" title="Next Section">Details</a></li>
+                    <li><a href="#panel-main" class="active" title="Next Section">Main</a></li>
+                    <li><a href="#panel-hourly" title="Next Section">Hourly</a></li>
+                    <li><a href="#panel-weekly" title="Next Section">Daily</a></li>
+                    <li><a href="#panel-details" title="Next Section">Details</a></li>
                 </ul>
             </nav>
         </div>
     </header>
-    <!----- SLIDES START --->
-    <div id="slide1">
+    <!----- PANELS START --->
+    <div id="panel-main">
         <div class="content">
-             {{weather.latitude}}
+            <div class="main-icon">{{weather.currently.icon}}</div>
+            <div class="main-summary">{{weather.currently.summary}}</div>
+            <div class="main-temperature">{{weather.currently.temperature | number:1}}°</div>
+            <div class="main-apparent-temperature">{{weather.currently.apparentTemperature | number:1}}°</div>
+        </div>
+    </div>
+    <div id="panel-hourly">
+        <div class="content">
             <ul>
-                <li ng-repeat="data in weather.hourly.data"><div>{{data.summary}}</div></li>
+                <li ng-repeat="data in weather.hourly.data">
+                    <div>{{data.icon}}</div>
+                    <div>{{data.summary}}</div>
+                    <div>{{data.temperature | number:1}}°</div>
+                    <div>{{data.apparentTemperature | number:1}}°</div>
+                </li>
             </ul>
         </div>
     </div>
-    <div id="slide2">
+    <div id="panel-daily">
         <div class="content">
-            <div class="quotes_container">
-                <h3 class="quotes">“Then the Grinch thought of something he hadn't before! What if Christmas, he thought, doesn't come from a store. What if Christmas...perhaps...means a little bit more!”</h3>
-                <img src="img/dr-seuss.png" align="left" />
-                <h4 class="author_name_gray">Dr. Seuss </h4>
-            </div>
+            <ul>
+                <li ng-repeat="data in weather.daily.data">
+                    <div class="daily-icon">{{data.icon}}</div>
+                    <div class="daily-summary">{{data.summary}}</div>
+                    <div class="daily-temperature-min">{{data.temperatureMin | number:1}}°</div>
+                    <div class="daily-temperature-max">{{data.temperatureMax | number:1}}°</div>
+                </li>
+            </ul>
         </div>
     </div>
-    <div id="slide3">
+    <div id="panel-details">
         <div class="content">
-            <div class="quotes_container">
-                <h3 class="quotes">“I truly believe that if we keep telling the Christmas story, singing the Christmas songs, and living the Christmas spirit, we can bring joy and happiness and peace to this world.” </h3>
-                <img src="img/norman.png" align="left" />
-                <h4 class="author_name_white">Norman Vincent Peale </h4>
-            </div>
+            <div class="details-precip-intesity">Precip. Intensity: {{weather.currently.precipIntensity}}</div>
+            <div class="details-precip-probability">Precip. Probability: {{weather.currently.precipProbability}}</div>
+            <div class="details-humidity">Humidity: {{weather.currently.humidity*100 | number:1}}%</div>
+            <div class="details-wind-speed">Wind Speed: {{weather.currently.windSpeed | number:1}}</div>
+            <div class="details-visibility">Visibility: {{weather.currently.visibility | number:1}}</div>
+            <div class="details-pressure">Pressure: {{weather.currently.pressure | number:1}}</div>
         </div>
     </div>
-    <div id="slide4">
-        <div class="content">
-            <div class="quotes_container">
-                <h3 class="quotes">“Christmas doesn't come from a store, maybe Christmas perhaps means a little bit more....” </h3>
-                <img src="img/dr-seuss.png" align="left" />
-                <h4 class="author_name_gray">Dr. Seuss </h4>
-            </div>
-        </div>
-    </div>
-    <!----- SLIDES END --->
-    <p></p>
+    <!----- PANELS END --->
 </body>
 
 </html>

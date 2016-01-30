@@ -1,0 +1,11 @@
+{
+  "version": "0.0.0",
+  "private": true,
+  "name": "parallax",
+  "description": "Parallax App",
+  "repository": "https://github.com/pjschiavi/parallax",
+  "license": "MIT",
+  "scripts": {
+    "start": "http-server -a 0.0.0.0 -p 8000"
+   }
+}

@@ -1,10 +1,6 @@
 document.addEventListener('wheel', function (event) {
-        if(event.deltaY >= 0) {
-            $('html, body').animate({ scrollTop: $('#slide4').offset().top }, 500);
-        } else {
-            $('html, body').animate({ scrollTop: $('#slide1').offset().top }, 500);
-        }
-    });
+
+
 
 $(document).ready(function () {
     $('a[href*=#]').each(function () {
