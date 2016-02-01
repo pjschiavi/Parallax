@@ -4,7 +4,7 @@ body
     margin: 0;
     padding: 0;
 }
-h1
+/*h1
 {
     font-family: 'Arvo';
     font-size: 55px;
@@ -48,25 +48,24 @@ h3
 .center
 {
     margin: 0 auto;
-}
+}*/
 .content
 {width: 960px; 
     margin: 0 auto;
-}
+}/*
 .clear
 {
     clear: both;
-}
+}*/
 
 #header
 {
     position: fixed;
 
     width: 100%;
-    height: 80px;
-    margin-top: 30px;
+    height: 60px;
 
-    background: url('../img/header-bg.png');
+    background: dodgerblue;
 }
 #nav
 {float: right; 
@@ -106,7 +105,7 @@ h3
 {opacity: 1; 
     color: #fff;
 }
-
+/*
 .quotes
 {
     font-family: 'Goudy Bookletter 1911', serif;
@@ -218,4 +217,4 @@ h3
 #copyright a
 {
     text-decoration: none; color: #fff;
-}
+}*/
